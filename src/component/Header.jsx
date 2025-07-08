@@ -7,39 +7,54 @@ import { BiSolidOffer } from "react-icons/bi";
 import { LiaHandsHelpingSolid } from "react-icons/lia";
 import { MdAssignmentInd } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
+import { ImCross } from "react-icons/im";
 
 export default function Header() {
   const [toogle, setToogle] = useState(false);
 
+  // ye side bar ke chalu karne ke function hai 
   const showSideMenu = () => {
     setToogle(true);
   };
 
-  const hideSideBar=()=>{
+  // ye side bar ko band karne ke function hai 
+  const hideSideBar = () => {
     setToogle(false);
   };
+
   return (
     <>
       {/* Toogle block */}
-      <div
+  <div
         className="background w-full h-full fixed duration-500 "
         style={{
           opacity: toogle ? 1 : 0,
-          visibility: toogle ? "visible" : "hidden"
-          
+          visibility: toogle ? "visible" : "hidden",
         }}
         onClick={hideSideBar}
-      >
-        <div className="w-1/3 bg-white h-screen absolute duration-[400ms]" style={
-          {
-            left : toogle ? '0%' :'-100%'
-          }
-        }>
+                              >
+      <div
+          className="w-1/3 bg-white h-screen absolute duration-[400ms]"
+          style={{
+            left: toogle ? "0%" : "-100%",
+          }}
+          onClick={(e) => e.stopPropagation()}
+                                                >
+          <div className="w-[80%] mx-auto mt-[50px] flex flex-col gap-[50px] ">
+            <ImCross className="text-[25px]" onClick={hideSideBar} />
+            <input type="text" placeholder="Search for area, street, name..!" className="border-1 shadow-md w-full pl-[25px] border-gray-300 rounded-md bg-white" />
+             
+          <div className="border border-gray-300 shadow-md p-2 rounded-md bg-white">
+             {/* Ye location ke dabba hai */} GPS
+          </div>
 
-        </div>
+          </div>
       </div>
+  </div>
+{/* ye upar wale code sirf side bar ke hai  */}
 
-      <div className="bg-slate-200 w-full h-[60px]">
+          {/* Idhar sai apne home navbar hai home page ke  */}
+      <div className="w-full h-[60px] border-b-gray-500 shadow-md">
         <div className="w-[90%] mx-auto flex items-center">
           {/* logo section */}
           <div className="w-[8%] ">
