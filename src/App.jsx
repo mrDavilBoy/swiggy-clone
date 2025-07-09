@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './component/Header'
 import SubMidle from './component/SubMidle'
 
+
 export default function App() {
   return (
     <>
@@ -10,6 +11,7 @@ export default function App() {
       <Header />
       <br />
       <SubMidle/>
+      
     </div>
     </>
   )

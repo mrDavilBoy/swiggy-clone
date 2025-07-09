@@ -25,32 +25,39 @@ export default function Header() {
   return (
     <>
       {/* Toogle block */}
+{/* TOGGLE BLOCK */}
+<div
+  className="fixed top-0 left-0 w-full h-full z-40 bg-black/50 transition-opacity duration-500"
+  style={{
+    opacity: toogle ? 1 : 0,
+    visibility: toogle ? "visible" : "hidden",
+  }}
+  onClick={hideSideBar}
+>
+  {/* SIDEBAR CONTENT */}
   <div
-        className="background w-full h-full fixed duration-500 "
-        style={{
-          opacity: toogle ? 1 : 0,
-          visibility: toogle ? "visible" : "hidden",
-        }}
-        onClick={hideSideBar}
-                              >
-      <div
-          className="w-1/3 bg-white h-screen absolute duration-[400ms]"
-          style={{
-            left: toogle ? "0%" : "-100%",
-          }}
-          onClick={(e) => e.stopPropagation()}
-                                                >
-          <div className="w-[80%] mx-auto mt-[50px] flex flex-col gap-[50px] ">
-            <ImCross className="text-[25px]" onClick={hideSideBar} />
-            <input type="text" placeholder="Search for area, street, name..!" className="border-1 shadow-md w-full pl-[25px] border-gray-300 rounded-md bg-white" />
-             
-          <div className="border border-gray-300 shadow-md p-2 rounded-md bg-white">
-             {/* Ye location ke dabba hai */} GPS
-          </div>
+    className="w-1/3 bg-white h-full absolute top-0 left-0 duration-500"
+    style={{
+      left: toogle ? "0%" : "-100%",
+    }}
+    onClick={(e) => e.stopPropagation()} // Prevent click from closing sidebar
+  >
+    <div className="w-[80%] mx-auto mt-[50px] flex flex-col gap-[50px]">
+      <ImCross className="text-[25px]" onClick={hideSideBar} />
 
-          </div>
+      <input
+        type="text"
+        placeholder="Search for area, street, name..!"
+        className="border border-gray-300 shadow-md w-full pl-[25px] rounded-md bg-white"
+      />
+
+      <div className="border border-gray-300 shadow-md p-2 rounded-md bg-white">
+        {/* Ye location ke dabba hai */} GPS
       </div>
+    </div>
   </div>
+</div>
+
 {/* ye upar wale code sirf side bar ke hai  */}
 
           {/* Idhar sai apne home navbar hai home page ke  */}
